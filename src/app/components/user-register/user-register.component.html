@@ -1,0 +1,125 @@
+<div class="main">
+    
+    <div class="container">
+        <div class = "side_img">
+             <div class="img" >
+               <img src="../assets/images/shakti.png" style="height:253px; width:253px;"/>
+            </div>
+             <div class="side-text">
+                <p class="p">Connect with your friends and  family </p>
+            </div>
+        </div>
+        <div class = "form_main">
+                   <div class="heading">  <h2> Client Registrationn</h2></div>  
+                    <form  [formGroup]= "myform" (ngSubmit)="postdata()" class="form">
+                         <div class="form_field">
+                            <label>Name:</label>
+                            <input type="text" placeholder="NAME" class="input" id="name" formControlName = "fname"/>
+                            <div >
+                                <div class="error" *ngIf= "form_control['fname'].invalid && form_control['fname'].touched"  style="height:15px; width:200px; margin:auto;">
+                                    <span class="error" *ngIf= "form_control['fname'].errors?.['required']" style="color: brown;" >Name is required </span>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div  class="form_field">
+                            <label>Email:</label>
+                            <input type="text" placeholder="EMAIL" class="input" formControlName = "femail"/>
+                            <div class="namevalid">
+                                <div class="error" *ngIf= "form_control['femail'].invalid && form_control['femail'].touched" style="height:15px; width:200px; margin:auto;">
+                                    <span *ngIf= "form_control['femail'].errors?.['required']"  style="color: brown;">Email is required</span>
+                                    <span *ngIf= "form_control['femail'].errors?.['pattern']" style="color: brown;">Email is not strong </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div  class="form_field">
+                            <label>Phone:</label>
+                            <input type="text" placeholder="PHONE" class="input" formControlName = "fphone"/>
+                            <div class="namevalid">
+                                <div class="error" *ngIf= "form_control['fphone'].invalid && form_control['fphone'].touched" style="height:15px; width:200px; margin:auto;">
+                                    <span *ngIf= "form_control['fphone'].errors?.['required']" style="color: brown;">Number is required</span>
+                                    <span *ngIf= "form_control['fphone'].errors?.['pattern']" style="color: brown;">Number is not valid</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div  class="form_field">
+                            <label>DOB:</label>
+                            <input type="text" placeholder="Date Of Birth" class="input" formControlName="fdob"/>
+                            <div class="namevalid">
+                                <div class="error" *ngIf= "form_control['fdob'].invalid && form_control['fdob'].touched" style="height:15px; width:200px; margin:auto;">
+                                    <span *ngIf= "form_control['fname'].errors?.['required']" style="color: brown;">DOB</span>
+                                </div>
+                            </div>
+                        </div >
+                        <div  class="form_field">
+                            <label>Password:</label>
+                            <input type="text" placeholder="PASSWORD" class="input"formControlName="fpass"/>
+                            <div class="namevalid">
+                                <div class="error" *ngIf= "form_control['fpass'].invalid && form_control['fpass'].touched" style="height:15px; width:200px; margin:auto;">
+                                    <span *ngIf= "form_control['fpass'].errors?.['required']" style="color: brown;">Password is required</span>
+                                </div>
+                            </div>
+                        </div >
+                        <div class = " select_box " >
+                            <label>Select Domain:</label>
+                            <select  placeholder="SELECT DOMAIN" style="height:50px; width:100px; border-radius: 5px;" class="select" formControlName="fdomain">
+                                <option value="domain"></option>
+                                <option value="angular">Angular js</option>
+                                <option value="react">React js</option>
+                                <option value="bigdata">BigData</option>
+                            </select>
+                            <div class="namevalid">
+                                <div class="error" *ngIf= "form_control['fdomain'].invalid && form_control['fdomain'].touched" style="height:15px; width:200px; margin:auto;">
+                                    <span *ngIf= "form_control['fdomain'].errors?.['required']" style="color: brown;">Select Domain</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Select_box">
+                            <label>Skills:</label>
+                            <select  class="select" name="multiple"  id="multiple1" multiple style="height:50px; width:100px; border-radius: 5px;"formControlName="fskill"> 
+                                <option value="c">c/c++</option>
+                                <option value="java">java</option>
+                                <option value="python">python</option>
+                                <option value="node">Nodejs</option>
+                                <option value="php">Php</option>
+                             </select>
+                            <div class="namevalid">
+                                <div class="error" *ngIf= "form_control['fskill'].invalid && form_control['fskill'].touched" style="height:15px; width:200px; margin:auto;">
+                                    <span *ngIf= "form_control['fskill'].errors?.['required']" style="color: brown;">Select Skill</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" value="check" id="check" name="checkbox" formControlName="fcheck"/> Trm and Condition
+                              </label>
+                            <div class="namevalid">
+                                <div class="error" *ngIf= "form_control['fcheck'].invalid && form_control['fcheck'].touched" style="height:15px; width:200px; margin:auto;">
+                                    <span *ngIf= "form_control['fname'].errors?.['required']" style="color: brown;">Tick the checkbox</span> 
+                                </div>
+                            </div>
+                        </div> 
+                                <div class="button_box">
+                                    <div class="butt" style="width:300px; margin:auto;">
+                                       <button type="submit" id="send" class="cus_button"  [disabled]= "myform.invalid" >SignUp</button>                                                                                                                                                            
+                                    </div>
+                                <div>
+                                <div>
+                                    <h4>Want To LogIn  Click Login</h4>
+                                    <div class="button_box">
+                                        <div class="butt" style="width:300px; margin:auto;">
+                                           <a type="submit" class="cus_button" style="text-align:center;" routerLink="/h">LogIn</a>                                                                                                                                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </form>
+        </div>  
+    </div>
+</div> 
+
+
+
+
+
